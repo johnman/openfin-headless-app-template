@@ -1,0 +1,18 @@
+{
+  "devtools_port": 9090,
+  "licenseKey": "request-a-key",
+  "startup_app": {
+    "name": "OpenFin Headless App AutoStart Template",
+    "description": "OpenFin Template For A Headless Agent that autostarts",
+    "url": "https://w3v3h.csb.app/",
+    "uuid": "openfin-headless-app-window-autostart-template",
+    "autoShow": false,
+    "applicationIcon": "https://w3v3h.csb.app/favicon.ico"
+  },
+  "runtime": {
+    "version": "stable"
+  },
+  "shortcut": {
+    "target": ["automatic-start-up"]
+  }
+}
