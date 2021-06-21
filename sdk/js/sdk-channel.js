@@ -20,11 +20,16 @@ export async function init(version) {
     connectedClientCount++;
   });
 
-  providerBus.onDisconnection((evt) => {
+  providerBus.onDisconnection(async (evt) => {
     console.log("Client disconnected", `uuid: ${evt.uuid}, name: ${evt.name}`);
     connectedClientCount--;
     if (connectedClientCount === 0) {
-      console.warn("THIS IS WHERE WE WOULD CLOSE THE WINDOW");
+      console.warn(
+        "THIS IS WHERE WE CLOSE THE WINDOW AS THERE ARE NO MORE CONNECTED CLIENTS"
+      );
+      await providerBus.destroy();
+      let win = await window.fin.me.getCurrentWindow();
+      await win.close(true);
     }
   });
 

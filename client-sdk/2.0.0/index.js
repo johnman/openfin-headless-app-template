@@ -13,12 +13,12 @@ export function isClientConnected() {
 export async function init(payload, onDisconnect, logger) {
   log = logger;
   try {
-    clientConnection = await connect("1.1.0", payload);
+    clientConnection = await connect("2.0.0", payload);
     isConnected = true;
     clientConnection.onDisconnection((_) => {
       isConnected = false;
       if (log !== undefined && log.info !== undefined) {
-        log.info("Disconnected from service 1.1.0");
+        log.info("Disconnected from service 2.0.0");
       }
       if (onDisconnect !== undefined) {
         onDisconnect();
