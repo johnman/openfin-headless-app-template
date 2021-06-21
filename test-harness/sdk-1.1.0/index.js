@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
       { token: "1234" },
       () => {
         console.log("disconnected");
-        result.innerText("Disconnected Callback Called.");
+        result.innerText = "Disconnected Callback Called.";
       },
       {
         info: (message, more) => {
