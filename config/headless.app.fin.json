@@ -9,7 +9,7 @@
     "uuid": "openfin-headless-app-template",
     "applicationIcon": "https://johnman.github.io/openfin-headless-app-template/favicon.ico",
     "autoShow": false,
-    "providerUrl": "https://johnman.github.io/openfin-headless-app-template/shell.html"
+    "providerUrl": "https://johnman.github.io/openfin-headless-app-template/platform/shell.html"
   },
   "snapshot": {
     "windows": []
