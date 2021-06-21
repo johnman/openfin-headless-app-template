@@ -10,12 +10,14 @@ window.addEventListener("DOMContentLoaded", () => {
   let disposeButton = document.getElementById("dispose");
   let executeActionButton = document.getElementById("executeAction");
   let executeNewActionButton = document.getElementById("executeNewAction");
+  let result = document.getElementById("result");
 
   initButton.onclick = async () => {
     let response = await init(
       { token: "1234" },
       () => {
         console.log("disconnected");
+        result.innerText("Disconnected Callback Called.");
       },
       {
         info: (message, more) => {
@@ -35,23 +37,31 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     );
     console.log("Init done. Connected: " + response.isConnected);
+    result.innerText = "Connected: " + response.isConnected;
     disposeButton.onclick = async () => {
       console.log("Dispose called.");
       if (response.dispose !== undefined) {
         await response.dispose();
+        result.innerText = "Dispose called";
       }
     };
   };
 
   executeActionButton.onclick = async () => {
     if (isClientConnected()) {
-      executeAction("Hi There");
+      let response = executeAction("Hi There");
+      result.innerText = "Execute Action Called. Result: " + response;
+    } else {
+      result.innerText = "Execute Action Called but isClientConnected is false";
     }
   };
 
   executeNewActionButton.onclick = async () => {
     if (isClientConnected()) {
-      executeNewAction("Hi There");
+      let response = executeNewAction("Hi There");
+      result.innerText = "Execute New Action Called. Result: " + response;
+    } else {
+      result.innerText = "Execute Action Called but isClientConnected is false";
     }
   };
 });
