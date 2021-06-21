@@ -2,7 +2,7 @@
 
 This is a basic template that can be used in codesandbox.
 
-The goal of this template is to show how to build something agent like. This application can either be a platform or window based application. It does not have a UI and some config files set it up so that it autostarts on login.
+The goal of this template is to show how to build something agent like. It does not have a UI and some config files set it up so that it autostarts on login. It also gives a basic example of a client sdk and two test apps that use that sdk.
 
 Some things you will need to update:
 

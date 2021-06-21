@@ -6,9 +6,10 @@
     "version": "stable"
   },
   "platform": {
-    "uuid": "openfin-headless-app-platform-autostart-template",
-    "applicationIcon": "https://w3v3h.csb.app/favicon.ico",
-    "autoShow": false
+    "uuid": "openfin-headless-app-autostart-template",
+    "applicationIcon": "https://johnman.github.io/openfin-headless-app-template/favicon.ico",
+    "autoShow": false,
+    "providerUrl": "https://johnman.github.io/openfin-headless-app-template/platform/shell.html"
   },
   "snapshot": {
     "windows": []

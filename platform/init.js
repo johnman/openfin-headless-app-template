@@ -1,6 +1,6 @@
-import { init } from "../js/agent.js";
+import { init } from "../js/sdk-shell.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  let platform = fin.Platform.getCurrentSync();
+  let platform = window.fin.Platform.getCurrentSync();
   platform.once("platform-api-ready", init.bind(this));
 });

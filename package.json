@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnman/openfin-csb-template.git"
+    "url": "git+https://github.com/johnman/openfin-headless-app-template.git"
   },
   "keywords": [],
   "author": "OpenFin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/johnman/openfin-csb-template/issues"
+    "url": "https://github.com/johnman/openfin-headless-app-template/issues"
   },
-  "homepage": "https://github.com/johnman/openfin-csb-template#readme",
+  "homepage": "https://github.com/johnman/openfin-headless-app-template#readme",
   "devDependencies": {
     "serve": "^11.2.0"
   },

@@ -1,0 +1,15 @@
+{
+  "devtools_port": 9090,
+  "licenseKey": "request-a-key",
+  "startup_app": {
+    "name": "SDK Test Harness App 1",
+    "description": "OpenFin Template",
+    "url": "https://johnman.github.io/openfin-headless-app-template/test-harness/sdk-1.1.0/index.html",
+    "uuid": "sdk-test-harness-1.1.0",
+    "autoShow": true,
+    "applicationIcon": "https://johnman.github.io/openfin-headless-app-template/favicon.ico"
+  },
+  "runtime": {
+    "version": "stable"
+  }
+}
