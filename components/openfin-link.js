@@ -24,7 +24,7 @@ if (customElements !== undefined) {
         if (
           subDirectory !== undefined &&
           subDirectory !== null &&
-          window.location.indexOf(subDirectory) > -1
+          window.location.href.indexOf(subDirectory) > -1
         ) {
           prefix = "/" + subDirectory;
         }
