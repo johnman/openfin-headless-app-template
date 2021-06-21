@@ -53,7 +53,7 @@ async function launchSDKVersion(version) {
               componentName: "view",
               componentState: {
                 processAffinity: version,
-                url: getRoot() + "/sdk/" + version + ".html",
+                url: getRoot() + "/sdk/" + getSDKName(version) + ".html",
                 name: getSDKName(version, false)
               }
             }
