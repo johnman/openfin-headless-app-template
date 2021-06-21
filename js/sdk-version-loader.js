@@ -15,7 +15,14 @@ export async function loadSDKVersion(version) {
 }
 
 function getSDKName(version, isWindow = true) {
-  return "sdk-" + isWindow ? version : "view-" + version;
+  let name = "sdk-";
+
+  if (isWindow) {
+    name += version;
+  } else {
+    name += "view-" + version;
+  }
+  return name;
 }
 
 async function sdkVersionExists(version) {

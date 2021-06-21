@@ -1,7 +1,7 @@
 {
-  "name": "openfin-headless-app-template",
+  "name": "openfin-versioned-headless-app",
   "version": "1.0.0",
-  "description": "A template for having a headless app",
+  "description": "",
   "main": "index.html",
   "scripts": {
     "start": "serve"
