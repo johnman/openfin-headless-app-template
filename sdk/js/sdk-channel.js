@@ -27,4 +27,6 @@ export async function init(version) {
       console.warn("THIS IS WHERE WE WOULD CLOSE THE WINDOW");
     }
   });
+
+  return providerBus;
 }
