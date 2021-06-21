@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   executeActionButton.onclick = async () => {
     if (isClientConnected()) {
-      let response = executeAction("Hi There");
+      let response = await executeAction("Hi There");
       result.innerText = "Execute Action Called. Result: " + response;
     } else {
       result.innerText = "Execute Action Called but isClientConnected is false";

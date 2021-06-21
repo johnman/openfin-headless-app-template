@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   executeActionButton.onclick = async () => {
     if (isClientConnected()) {
-      let response = executeAction("Hi There");
+      let response = await executeAction("Hi There");
       result.innerText = "Execute Action Called. Result: " + response;
     } else {
       result.innerText = "Execute Action Called but isClientConnected is false";
@@ -58,7 +58,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   executeNewActionButton.onclick = async () => {
     if (isClientConnected()) {
-      let response = executeNewAction("Hi There");
+      let response = await executeNewAction("Hi There");
       result.innerText = "Execute New Action Called. Result: " + response;
     } else {
       result.innerText = "Execute Action Called but isClientConnected is false";

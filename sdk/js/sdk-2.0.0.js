@@ -24,7 +24,7 @@ async function createSDK(version) {
       "Execute New Action: Payload sent in request: " + JSON.stringify(payload)
     );
 
-    return 100;
+    return Math.floor(Math.random() * 1000);
   });
 }
 
