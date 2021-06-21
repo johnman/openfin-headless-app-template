@@ -19,10 +19,18 @@ window.addEventListener("DOMContentLoaded", () => {
       },
       {
         info: (message, more) => {
-          console.log(message, more);
+          if (more !== undefined) {
+            console.log(message, more);
+          } else {
+            console.log(message);
+          }
         },
         error: (message, error) => {
-          console.error(message, error);
+          if (error !== undefined) {
+            console.error(message, error);
+          } else {
+            console.error(message);
+          }
         }
       }
     );
