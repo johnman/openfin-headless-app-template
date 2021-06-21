@@ -7,6 +7,7 @@ if (customElements !== undefined) {
     }
     connectedCallback() {
       const showInFin = (this.getAttribute("show-in-fin") || "true") === "true";
+      const subDirectory = this.getAttribute("sub-directory");
       let href = this.getAttribute("href") || "#";
       const isFin = href.indexOf("fin://") > -1;
       const isFins = href.indexOf("fins://") > -1;
@@ -19,10 +20,19 @@ if (customElements !== undefined) {
         (isFin || isFins) &&
         (href.indexOf(".") === 7 || href.indexOf(".") === 8)
       ) {
+        let prefix = "";
+        if (
+          subDirectory !== undefined &&
+          subDirectory !== null &&
+          window.location.indexOf(subDirectory) > -1
+        ) {
+          prefix = "/" + subDirectory;
+        }
         href = href.replace(
           ".",
           window.location.hostname +
-            (window.location.port ? ":" + window.location.port : "")
+            (window.location.port ? ":" + window.location.port : "") +
+            prefix
         );
 
         if (isFin && window.location.protocol === "https") {
@@ -42,7 +52,7 @@ if (customElements !== undefined) {
 
       if (isFin || isFins) {
         this._$a = this.shadowRoot.querySelector("a");
-        this._$a.addEventListener("click", e => {
+        this._$a.addEventListener("click", (e) => {
           let url = e.target.href;
           if (window.fin !== undefined && e.target.href.indexOf(".json" > -1)) {
             e.preventDefault();
@@ -54,7 +64,7 @@ if (customElements !== undefined) {
 
             fin.Application.startFromManifest(url)
               .then(() => console.log("App is running"))
-              .catch(err => console.log(err));
+              .catch((err) => console.log(err));
           }
         });
       }
