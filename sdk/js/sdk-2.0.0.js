@@ -16,7 +16,7 @@ async function init() {
 async function createSDK(version) {
   sdkChannel = await initChannel(version);
   sdkChannel.register(executeActionName, executeAction);
-  sdkChannel.register("newAction", async (payload, identity) => {
+  sdkChannel.register("executeNewAction", async (payload, identity) => {
     console.log(
       "Execute New Action: Requested by client: " + JSON.stringify(identity)
     );

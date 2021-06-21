@@ -35,7 +35,7 @@ export async function init(payload, onDisconnect, logger) {
     };
   } catch (err) {
     if (log !== undefined && log.error !== undefined) {
-      log.error("Error connecting to service version 1.1.0.", err);
+      log.error("Error connecting to service version 2.0.0.", err);
     }
     return {
       isConnected: false
