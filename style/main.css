@@ -1,3 +1,120 @@
+@import url("inter.css");
+:root {
+  --color-white: #ffffff;
+  --color-light-gray-1: #f3f5f8;
+  --color-light-gray-2: #eceef1;
+  --color-light-gray-3: #dddfe4;
+  --color-light-gray-4: #c9cbd2;
+  --color-gray: #7d808a;
+  --color-dark-gray-1: #53565f;
+  --color-dark-gray-2: #383a40;
+  --color-dark-gray-3: #2f3136;
+  --color-dark-gray-4: #24262a;
+  --color-dark-gray-5: #1e1f23;
+  --color-dark-gray-6: #111214;
+  --color-positive: #35c759;
+  --color-caution: #f48f00;
+  --color-negative: #da4d4d;
+  --color-active-blue: #189ffb;
+  --color-brand-blue-darkest: #3d39cd;
+  --color-brand-blue-darker: #4642e0;
+  --color-brand-blue: #4d49eb;
+  --color-brand-blue-light: #5254fb;
+  --color-brand-blue-lighter: #5c5efe;
+  --color-brand-blue-lightest: #686aff;
+  --color-secondary-purple: #8c61ff;
+  --color-secondary-blue: #36c3fe;
+  --color-secondary-green: #00cc88;
+  --color-secondary-yellow: #ffeb00;
+  --color-secondary-orange: #ff8c4c;
+  --color-secondary-red: #ff5d60;
+  --color-secondary-pink: #ff8fb8;
+  --blue: var(--color-brand-blue-darkest);
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+html,
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter;
+  background: var(--color-dark-gray-3);
+  color: var(--color-light-gray-1);
+  font-size: 14px;
+  padding: 5px;
+}
+
+a,
+.btn-link {
+  color: #686aff;
+}
+pre {
+  color: white;
+}
+
+.container {
+  border-color: var(--color-dark-gray-1);
+  border-width: medium;
+  border: solid;
+  padding: 20px;
+  margin-top: 20px;
+}
+.btn-primary {
+  color: #fff;
+  background-color: var(--color-brand-blue-darkest);
+  border-color: var(--color-brand-blue-darkest);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: var(--color-brand-blue-lightest);
+  border-color: var(--color-brand-blue-lightest);
+}
+
+input {
+  font-family: Inter;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  font-style: normal;
+  resize: none;
+  outline: none;
+  border: none;
+  color: white;
+  padding: 0px 2px;
+  background-color: #53565f;
+  padding: 0px 12px;
+  height: 26px;
+  width: 400px;
+}
+
+.label-streamType {
+  margin-right: 42px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: white;
+  background-color: #53565f;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: white;
+  background-color: #53565f;
+}
+
+option {
+  color: white;
+  background-color: #53565f;
 }
