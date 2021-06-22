@@ -25,7 +25,7 @@ export async function init(version) {
     connectedClientCount--;
     if (connectedClientCount === 0) {
       console.warn(
-        "THIS IS WHERE WE CLOSE THE WINDOW AS THERE ARE NO MORE CONNECTED CLIENTS"
+        "THIS IS WHERE WE CLOSE THE WINDOW/VIEW AS THERE ARE NO MORE CONNECTED CLIENTS"
       );
       await providerBus.destroy();
       if (window.fin.me.isWindow) {

@@ -13,11 +13,5 @@
   },
   "snapshot": {
     "windows": []
-  },
-  "customSettings": {
-    "mode": {
-      "value": "window",
-      "_description": "the above value can be set to window or view"
-    }
   }
 }
