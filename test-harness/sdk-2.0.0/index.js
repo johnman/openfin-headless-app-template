@@ -14,9 +14,15 @@ window.addEventListener("DOMContentLoaded", () => {
   let startStreamButton = document.getElementById("startStream");
   let stopStreamButton = document.getElementById("stopStream");
   let streamResult = document.getElementById("streamResult");
-  let steamType = document.getElementById("streamType");
+  let streamType = document.getElementById("streamType");
+  let startStream2Button = document.getElementById("startStream2");
+  let stopStream2Button = document.getElementById("stopStream2");
+  let streamResult2 = document.getElementById("streamResult2");
+  let streamType2 = document.getElementById("streamType2");
+
   let result = document.getElementById("result");
   let streamDisposable;
+  let stream2Disposable;
 
   let disposeOfStreamDisposable = async () => {
     if (streamDisposable !== undefined && streamDisposable !== null) {
@@ -24,6 +30,15 @@ window.addEventListener("DOMContentLoaded", () => {
       await streamDisposable.dispose();
       streamDisposable = null;
       streamDisposable = undefined;
+    }
+  };
+
+  let disposeOfStream2Disposable = async () => {
+    if (stream2Disposable !== undefined && stream2Disposable !== null) {
+      // for this test harness we only support one stream at a time
+      await stream2Disposable.dispose();
+      stream2Disposable = null;
+      stream2Disposable = undefined;
     }
   };
 
@@ -86,14 +101,31 @@ window.addEventListener("DOMContentLoaded", () => {
       (data) => {
         streamResult.innerText = data;
       },
-      { filter: steamType.value }
+      { filter: streamType.value }
     );
-    result.innerText = "Stream Requested";
+    result.innerText = "Stream 1 Requested";
   };
 
   stopStreamButton.onclick = async () => {
     await disposeOfStreamDisposable();
-    result.innerText = "Stream Disposed";
+    result.innerText = "Stream 1 Disposed";
     streamResult.innerText = "";
+  };
+
+  startStream2Button.onclick = async () => {
+    await disposeOfStream2Disposable();
+    stream2Disposable = await startStream(
+      (data) => {
+        streamResult2.innerText = data;
+      },
+      { filter: streamType2.value }
+    );
+    result.innerText = "Stream 2 Requested";
+  };
+
+  stopStream2Button.onclick = async () => {
+    await disposeOfStream2Disposable();
+    result.innerText = "Stream 2 Disposed";
+    streamResult2.innerText = "";
   };
 });
