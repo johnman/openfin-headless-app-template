@@ -63,7 +63,7 @@ async function launchSDKVersion(version) {
                 componentName: "view",
                 componentState: {
                   processAffinity: version,
-                  backgroundThrottling: true,
+                  backgroundThrottling: false,
                   url: sdkUrl,
                   name: getSDKName(version, false)
                 }

@@ -19,7 +19,7 @@
   },
   "appSettings": {
     "mode": {
-      "value": "window",
+      "value": "view",
       "_description": "the above value can be set to window or view"
     }
   }
