@@ -1,5 +1,4 @@
 import { getRoot } from "./host.js";
-import { getSettings } from "./sdk-settings.js";
 
 export async function loadSDKVersion(version) {
   let sdkExists = await sdkVersionExists(version);
@@ -15,14 +14,9 @@ export async function loadSDKVersion(version) {
   }
 }
 
-function getSDKName(version, isWindow = true) {
+function getSDKName(version) {
   let name = "sdk-";
-
-  if (isWindow) {
-    name += version;
-  } else {
-    name += "view-" + version;
-  }
+  name += version;
   return name;
 }
 
@@ -39,58 +33,20 @@ async function sdkVersionExists(version) {
   return exists;
 }
 async function launchSDKVersion(version) {
-  let settings = await getSettings();
   let windowName = getSDKName(version);
   let defaultHeight = 400;
   let defaultWidth = 400;
   let autoShow = false;
-
   let sdkUrl = getRoot() + "/sdk/" + getSDKName(version) + ".html";
 
-  if (settings.mode !== undefined && settings.mode.value === "view") {
-    let servicesWindow = {
-      name: windowName,
-      defaultHeight,
-      defaultWidth,
-      autoShow,
-      layout: {
-        content: [
-          {
-            type: "column",
-            content: [
-              {
-                type: "component",
-                componentName: "view",
-                componentState: {
-                  processAffinity: version,
-                  backgroundThrottling: false,
-                  url: sdkUrl,
-                  name: getSDKName(version, false)
-                }
-              }
-            ]
-          }
-        ]
-      }
-    };
-
-    let sdkPackage = {
-      windows: [servicesWindow]
-    };
-
-    window.fin.Platform.getCurrentSync().applySnapshot(sdkPackage, {
-      closeExistingWindows: false
-    });
-  } else {
-    await window.fin.Window.create({
-      name: windowName,
-      url: sdkUrl,
-      defaultHeight,
-      defaultWidth,
-      autoShow,
-      processAffinity: version,
-      backgroundThrottling: false,
-      frame: true
-    });
-  }
+  await window.fin.Window.create({
+    name: windowName,
+    url: sdkUrl,
+    defaultHeight,
+    defaultWidth,
+    autoShow,
+    processAffinity: version,
+    backgroundThrottling: false,
+    frame: true
+  });
 }
