@@ -2,7 +2,7 @@
   "devtools_port": 9090,
   "licenseKey": "request-a-key",
   "runtime": {
-    "arguments": "--v=1 --inspect --disable-background-timer-throttling",
+    "arguments": "--v=1 --inspect",
     "version": "stable"
   },
   "platform": {
