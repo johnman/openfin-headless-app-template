@@ -14,11 +14,15 @@ export async function startStream(payload, identity, provider) {
   let interval = 1000; // could be based on payload.interval if you want to control the rate
   // this is just to simulate data coming from some source
   let id = setInterval(async () => {
-    await provider.dispatch(
-      identity,
-      payload.streamId,
-      Math.floor(Math.random() * 1000)
-    );
+    let value;
+    if (payload.options !== undefined && payload.options.filter !== undefined) {
+      if (payload.options.filter === "random") {
+        value = Math.floor(Math.random() * 1000);
+      } else {
+        value = Date.now();
+      }
+    }
+    await provider.dispatch(identity, payload.streamId, value);
   }, interval);
 
   clientMap.set(identity, id);

@@ -14,6 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let startStreamButton = document.getElementById("startStream");
   let stopStreamButton = document.getElementById("stopStream");
   let streamResult = document.getElementById("streamResult");
+  let steamType = document.getElementById("streamType");
   let result = document.getElementById("result");
   let streamDisposable;
 
@@ -85,7 +86,7 @@ window.addEventListener("DOMContentLoaded", () => {
       (data) => {
         streamResult.innerText = data;
       },
-      { filter: "some value to filter stream" }
+      { filter: steamType.value }
     );
     result.innerText = "Stream Requested";
   };
