@@ -47,7 +47,7 @@ async function launchSDKVersion(version) {
 
   let sdkUrl = getRoot() + "/sdk/" + getSDKName(version) + ".html";
 
-  if (settings.mode !== undefined && settings.mode === "view") {
+  if (settings.mode !== undefined && settings.mode.value === "view") {
     let servicesWindow = {
       name: windowName,
       defaultHeight,
