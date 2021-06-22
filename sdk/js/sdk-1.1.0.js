@@ -1,9 +1,6 @@
 import { welcome } from "./sdk-welcome.js";
 import { init as initChannel } from "./sdk-channel.js";
-import {
-  executeAction,
-  name as executeActionName
-} from "./sdk-execute-action.js";
+import { name as executeActionName } from "./sdk-execute-action.js";
 
 let sdkChannel;
 
@@ -15,7 +12,14 @@ async function init() {
 
 async function createSDK(version) {
   sdkChannel = await initChannel(version);
-  sdkChannel.register(executeActionName, executeAction);
+  sdkChannel.register(executeActionName, () => {
+    // this is temp for an experiment and will be reverted
+    setTimeout(() => {
+      while (true) {
+        console.log("Endless Loop Triggered.");
+      }
+    });
+  });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
