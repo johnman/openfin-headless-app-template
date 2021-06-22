@@ -81,7 +81,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   startStreamButton.onclick = async () => {
     await disposeOfStreamDisposable();
-    streamDisposable = startStream(
+    streamDisposable = await startStream(
       (data) => {
         streamResult.innerText = data;
       },
