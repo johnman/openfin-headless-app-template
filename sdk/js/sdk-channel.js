@@ -28,8 +28,16 @@ export async function init(version) {
         "THIS IS WHERE WE CLOSE THE WINDOW AS THERE ARE NO MORE CONNECTED CLIENTS"
       );
       await providerBus.destroy();
-      let win = await window.fin.me.getCurrentWindow();
-      await win.close(true);
+      if (window.fin.me.isWindow) {
+        window.fin.me.close(true);
+      } else if (window.fin.me.isView) {
+        let win = await window.fin.me.getCurrentWindow();
+        await win.close(true);
+      } else {
+        console.warn(
+          "The sdk is not hosted in a view or window and so cannot close itself."
+        );
+      }
     }
   });
 
