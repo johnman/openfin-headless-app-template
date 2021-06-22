@@ -2,7 +2,8 @@ import {
   init,
   executeAction,
   executeNewAction,
-  isClientConnected
+  isClientConnected,
+  startStream
 } from "../../client-sdk/2.0.0/index.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -10,7 +11,20 @@ window.addEventListener("DOMContentLoaded", () => {
   let disposeButton = document.getElementById("dispose");
   let executeActionButton = document.getElementById("executeAction");
   let executeNewActionButton = document.getElementById("executeNewAction");
+  let startStreamButton = document.getElementById("startStream");
+  let stopStreamButton = document.getElementById("stopStream");
+  let streamResult = document.getElementById("streamResult");
   let result = document.getElementById("result");
+  let streamDisposable;
+
+  let disposeOfStreamDisposable = async () => {
+    if (streamDisposable !== undefined && streamDisposable !== null) {
+      // for this test harness we only support one stream at a time
+      await streamDisposable.dispose();
+      streamDisposable = null;
+      streamDisposable = undefined;
+    }
+  };
 
   initButton.onclick = async () => {
     let response = await init(
@@ -63,5 +77,22 @@ window.addEventListener("DOMContentLoaded", () => {
     } else {
       result.innerText = "Execute Action Called but isClientConnected is false";
     }
+  };
+
+  startStreamButton.onclick = async () => {
+    await disposeOfStreamDisposable();
+    streamDisposable = startStream(
+      (data) => {
+        streamResult.innerText = data;
+      },
+      { filter: "some value to filter stream" }
+    );
+    result.innerText = "Stream Requested";
+  };
+
+  stopStreamButton.onclick = async () => {
+    await disposeOfStreamDisposable();
+    result.innerText = "Stream Disposed";
+    streamResult.innerText = "";
   };
 });

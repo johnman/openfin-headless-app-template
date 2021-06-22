@@ -1,5 +1,7 @@
 import { welcome } from "./sdk-welcome.js";
 import { init as initChannel } from "./sdk-channel.js";
+import { startStream, stopStream } from "./sdk-stream.js";
+
 import {
   executeAction,
   name as executeActionName
@@ -25,6 +27,28 @@ async function createSDK(version) {
     );
 
     return Math.floor(Math.random() * 1000);
+  });
+
+  sdkChannel.register("startStream", async (payload, identity) => {
+    console.log(
+      "Start Stream Action: Requested by client: " + JSON.stringify(identity)
+    );
+    console.log(
+      "Start Stream Action: Payload sent in request: " + JSON.stringify(payload)
+    );
+    let response = await startStream(payload, identity, sdkChannel);
+    return response;
+  });
+
+  sdkChannel.register("stopStream", async (payload, identity) => {
+    console.log(
+      "Stop Stream Action: Requested by client: " + JSON.stringify(identity)
+    );
+    console.log(
+      "Stop Stream Action: Payload sent in request: " + JSON.stringify(payload)
+    );
+    let response = await stopStream(payload, identity);
+    return response;
   });
 }
 

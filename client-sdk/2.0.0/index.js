@@ -1,5 +1,6 @@
 import { name as executeActionName } from "../common/sdk-execute-action.js";
 import { name as executeNewActionName } from "../common/sdk-execute-new-action.js";
+import { name as startStreamName } from "../common/sdk-start-stream.js";
 import { connect } from "../common/connect.js";
 
 let clientConnection;
@@ -61,6 +62,40 @@ export async function executeNewAction(message) {
       message
     });
     return sdkResponse;
+  } else {
+    // up to sdk developer to decide
+    return null;
+  }
+}
+
+export async function startStream(callback, options) {
+  if (isClientConnected()) {
+    let streamId =
+      "streamId-" + Date.now() + "-" + Math.floor(Math.random() * 1000000);
+
+    clientConnection.register(streamId, (payload, identity) => {
+      callback(payload);
+    });
+
+    const sdkResponse = await clientConnection.dispatch(startStreamName, {
+      streamId,
+      options
+    });
+
+    if (sdkResponse !== undefined && sdkResponse !== null) {
+      return {
+        dispose: async () => {
+          await clientConnection.dispatch(sdkResponse.clearAction, {
+            id: sdkResponse.id
+          });
+          await clientConnection.remove(streamId);
+        }
+      };
+    }
+    // if we didn't get a successful connection then the stream will never
+    // be fed data. Clean up
+    await clientConnection.remove(streamId);
+    return null;
   } else {
     // up to sdk developer to decide
     return null;
