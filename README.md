@@ -5,6 +5,7 @@
 * An example that can be spun up by copying the folders to the root of your local dev server (if it runs on port 5000) or by typing npm start in the root directory.
 * An example of building a client sdk (in a real sdk you would likely not have versioned folders and would have release branches. This versioned setup is purely to demonstrate different client applications using different versions).
 * An example of building a headless service that exposes functionality to 1 or more applications/views:
+    - has a config file that defines a platform application with no default visible view and defines a custom provider
     - has support for a number of versions of your sdk (in case different applications are using different versions on the same desktop)
     - can be started by the client sdk and load a version specific page to connect to
     - supports a server based config file to determine if an sdk version is supported, where you can find out more information about an sdk version and whether or not the specific sdk page should keep alive even if there are no connected clients (if you wish to cache data for example).
@@ -29,6 +30,10 @@ To give you an idea and sample of how you could build a headless service, create
 
 This should let you build, debug and then build your own (after using this for ideas).
 
+### What does this roughly look like?
+
+![Example Headless Service](headless-service.png)
+
 
 More information about OpenFin:
 
@@ -38,6 +43,6 @@ More information about OpenFin:
 
 You can launch the test apps for debugging by visiting this link:
 
-https://localhost:5000/
+<a href="http://localhost:5000" target="_blank">http://localhost:5000</a>.
 
 This is not a production app but is more an example, please treat it as such.
