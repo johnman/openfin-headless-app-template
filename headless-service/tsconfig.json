@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "ESNEXT",
+      "module": "ES2020",
+      "moduleResolution":"Node",
+      "noEmitHelpers": true,
+      "strict": false,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "./js",
+      "skipLibCheck": true,
+      "declaration": false,
+      "sourceMap": true
+    },
+    "include": [
+      "./ts"
+    ]
+  }

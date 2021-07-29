@@ -1,0 +1,15 @@
+{
+  "name": "openfin-headless-app-sdk",
+  "version": "1.1.0",
+  "description": "An example of a versioned sdk. This would likely not be a versioned folder but would be a repo with release branches/tags.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John M",
+  "license": "ISC",
+  "files": [
+    "../../dist/cjs/1.1.0",
+    "../../dist/esm/1.1.0"
+  ]
+}

@@ -1,42 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>OpenFin Template</title>
-    <script src="components/openfin-link.js"></script>
-    <link rel="stylesheet" href="style/main.css" />
-    <link rel="shortcut icon" href="./favicon.ico" />
-  </head>
-  <body>
-    <h1>This is a basic example of an OpenFin headless app.</h1>
 
-    <p>
-      <openfin-link
-        show-in-fin="false"
-        sub-directory="openfin-headless-app-template"
-        href="fins://./test-harness/sdk-1.1.0/config/app.fin.json"
-        >Launch SDK 1.1.0 Test Harness</openfin-link
-      >
-    </p>
-    <p>
-      <openfin-link
-        show-in-fin="false"
-        sub-directory="openfin-headless-app-template"
-        href="fins://./test-harness/sdk-2.0.0/config/app.fin.json"
-        >Launch SDK 2.0.0 Test Harness</openfin-link
-      >
-    </p>
-    <h4>You shouldn't need to launch the headless app directly.</h4>
-    <p>The apps using the sdk will cause the headless app to run</p>
-    <p>
-      <openfin-link
-        show-in-fin="false"
-        sub-directory="openfin-headless-app-template"
-        href="fins://./config/headless.app.fin.json"
-        >Launch OpenFin Headless Application</openfin-link
-      >
-    </p>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Launcher</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <link rel="shortcut icon" href="./favicon.ico" />
+</head>
+
+<body>
+  <h1>This is a basic example of an OpenFin headless app.</h1>
+
+  <p>
+    <a href="fin://localhost:5000/test-harness/sdk/1.1.0/config/app.fin.json">Launch SDK 1.1.0 Test Harness</a>
+  </p>
+  <p>
+    <a href="fin://localhost:5000/test-harness/sdk/2.0.0/config/app.fin.json">Launch SDK 2.0.0 Test Harness</a>
+  </p>
+  <h4>You shouldn't need to launch the headless app directly.</h4>
+  <p>The apps using the sdk will cause the headless app to run</p>
+  <p>
+    <a href="fin://localhost:5000/headless-service/config/headless.app.fin.json">Launch OpenFin Headless Application</a>
+  </p>
+</body>
+
 </html>

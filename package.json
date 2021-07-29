@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "serve"
+    "start": "npx http-server --port 5000"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,6 @@
     "serve": "^11.2.0"
   },
   "dependencies": {
-    "@types/openfin": "49.0.0"
+  
   }
 }

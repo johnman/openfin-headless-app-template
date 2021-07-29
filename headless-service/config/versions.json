@@ -1,0 +1,14 @@
+{
+  "1.0.0": {
+    "supported": false,
+    "readme": "http://localhost:5000/headless-service/md/service/1.0.0/README.md"
+  },
+  "1.1.0": {
+    "supported": true,
+    "readme": "http://localhost:5000/headless-service/md/service/1.1.0/README.md"
+  },
+  "2.0.0": {
+    "supported": true,
+    "readme": "http://localhost:5000/headless-service/md/service/2.0.0/README.md"
+  }
+}

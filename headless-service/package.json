@@ -1,0 +1,21 @@
+{
+  "name": "openfin-headless-app-service",
+  "version": "0.0.0",
+  "description": "An example of a headless app that supports multiple sdk versions in case multiple clients are running.",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc -p tsconfig.json"
+  },
+  "author": "John M",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "openfin-adapter": "^20.62.4"
+  },
+  "files": [
+    "config",
+    "js",
+    "window",
+    "favicon.ico"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "devtools_port": 9090,
+  "licenseKey": "request-a-key",
+  "runtime": {
+    "arguments": "--v=1 --inspect",
+    "version": "stable"
+  },
+  "platform": {
+    "uuid": "openfin-headless-app-template",
+    "applicationIcon": "http://localhost:5000/headless-service/favicon.ico",
+    "autoShow": false,
+    "providerUrl": "http://localhost:5000/headless-service/window/platform/shell.html"
+  },
+  "snapshot": {
+    "windows": []
+  }
+}
