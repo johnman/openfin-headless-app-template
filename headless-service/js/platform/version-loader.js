@@ -1,4 +1,5 @@
 import { getRoot } from "./host.js";
+import { keepAlive } from "./version-info.js";
 export async function loadSDKVersion(version) {
     let sdkExists = await sdkVersionExists(version);
     if (sdkExists) {
@@ -35,6 +36,7 @@ async function launchSDKVersion(version) {
     let defaultHeight = 400;
     let defaultWidth = 400;
     let autoShow = false;
+    let keepOpen = await keepAlive(version);
     let sdkUrl = getRoot() + "/window/service/" + version;
     let windowCreationOptions = {
         name: windowName,
@@ -42,6 +44,9 @@ async function launchSDKVersion(version) {
         defaultHeight,
         defaultWidth,
         autoShow,
+        customData: {
+            keepOpen
+        },
         processAffinity: version,
         frame: true
     };

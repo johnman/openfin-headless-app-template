@@ -13,10 +13,20 @@ async function getVersionList() {
   }
   return supportedVersions;
 }
-export async function isValid(version) {
+export async function isValid(version:string) {
   let versions = await getVersionList();
   let supportedVersion = versions[version];
   if (supportedVersion !== undefined && supportedVersion.supported === true) {
+    {}
+    return true;
+  }
+  return false;
+}
+
+export async function keepAlive(version:string) {
+  let versions = await getVersionList();
+  let supportedVersion = versions[version];
+  if (supportedVersion !== undefined && supportedVersion.keepAlive === true) {
     return true;
   }
   return false;

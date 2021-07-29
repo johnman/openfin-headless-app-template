@@ -1,4 +1,4 @@
-import { isValid } from "./isvalid.js";
+import { isValid } from "./version-info.js";
 import { loadSDKVersion } from "./version-loader.js";
 export async function sdkLoader(version) {
     let versionIsValid = await isValid(version);

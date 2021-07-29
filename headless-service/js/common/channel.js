@@ -3,6 +3,9 @@ export async function init(version) {
     const CHANNEL_NAME = SDK_PREFIX + version;
     const providerBus = await fin.InterApplicationBus.Channel.create(CHANNEL_NAME);
     let connectedClientCount = 0;
+    let win = fin.Window.getCurrentSync();
+    let options = await win.getOptions();
+    let keepOpen = options.customData !== undefined && options.customData.keepOpen === true;
     providerBus.onConnection((identity, payload) => {
         // can reject a connection here by throwing an error
         console.log(CHANNEL_NAME + ": Client connection request identity: ", JSON.stringify(identity));
@@ -13,7 +16,7 @@ export async function init(version) {
     providerBus.onDisconnection(async (evt) => {
         console.log("Client disconnected", `uuid: ${evt.uuid}, name: ${evt.name}`);
         connectedClientCount--;
-        if (connectedClientCount === 0) {
+        if (connectedClientCount === 0 && keepOpen === false) {
             console.warn("THIS IS WHERE WE CLOSE THE WINDOW/VIEW AS THERE ARE NO MORE CONNECTED CLIENTS");
             await providerBus.destroy();
             if (fin.me.isWindow) {

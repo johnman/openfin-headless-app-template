@@ -1,6 +1,7 @@
 import { getRoot } from "./host.js";
+import { keepAlive } from "./version-info.js";
 
-export async function loadSDKVersion(version) {
+export async function loadSDKVersion(version:string) {
   let sdkExists = await sdkVersionExists(version);
   if (sdkExists) {
     return true;
@@ -32,11 +33,12 @@ async function sdkVersionExists(version) {
   });
   return exists;
 }
-async function launchSDKVersion(version) {
+async function launchSDKVersion(version:string) {
   let windowName = getSDKName(version);
   let defaultHeight = 400;
   let defaultWidth = 400;
   let autoShow = false;
+  let keepOpen = await keepAlive(version);
   let sdkUrl = getRoot() + "/window/service/" + version;
   let windowCreationOptions: OpenFin.WindowCreationOptions = {
     name: windowName,
@@ -44,6 +46,9 @@ async function launchSDKVersion(version) {
     defaultHeight,
     defaultWidth,
     autoShow,
+    customData: {
+      keepOpen
+    },
     processAffinity: version,
     frame: true
   };
